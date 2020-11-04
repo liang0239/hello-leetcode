@@ -34,14 +34,50 @@ package leetcode;
 // Related Topics 树
 // 👍 482 👎 0
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class S235 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (null==root){
-            return root;
+        List<TreeNode> pPath = getPath(root, p);
+        List<TreeNode> qPath = getPath(root, q);
+        TreeNode ancestor = null;
+        for (int i=0; i<pPath.size() && i<qPath.size(); i++){
+            if (pPath.get(i) == qPath.get(i)){
+                ancestor = pPath.get(i);
+            }else{
+                break;
+            }
         }
+        return ancestor;
+    }
 
+    private List<TreeNode> getPath(TreeNode root, TreeNode target) {
+        List<TreeNode> path = new ArrayList<>();
+        TreeNode node = root;
+        while (node!=target){
+            path.add(node);
+            if (target.val < node.val){
+                node = node.left;
+            }else {
+                node = node.right;
+            }
+        }
+        path.add(node);
+        return path;
+    }
 
-
-        return root;
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        TreeNode ancestor = root;
+        while (true){
+            if (p.val < ancestor.val && q.val<ancestor.val){
+                ancestor = ancestor.left;
+            }else if (p.val > ancestor.val && q.val> ancestor.val){
+                ancestor = ancestor.right;
+            }else{
+                break;
+            }
+        }
+        return ancestor;
     }
 }
