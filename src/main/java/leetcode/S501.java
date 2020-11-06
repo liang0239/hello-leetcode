@@ -34,24 +34,36 @@ import java.util.Map;
 
 public class S501 {
     public int[] findMode(TreeNode root) {
-        List<Integer> inorderList = new ArrayList<>();
-        dfs(root, inorderList);
         Map<Integer,Integer> countMap = new HashMap<>();
-        for (Integer num : inorderList) {
+        dfs(root, countMap);
 
+        int maxcnt = 0;
+        for (int v: countMap.values()){
+            if (v > maxcnt){
+                maxcnt = v;
+            }
         }
 
-
-        return null;
+        List<Integer> ans = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> m: countMap.entrySet()){
+            if (maxcnt == m.getValue()){
+                ans.add(m.getKey());
+            }
+        }
+        int[] tmp = new int[ans.size()];
+        for (int i=0; i<ans.size();i++){
+            tmp[i] = ans.get(i);
+        }
+        return tmp;
     }
 
-    private void dfs(TreeNode root, List<Integer> inorderList) {
+    private void dfs(TreeNode root,  Map<Integer,Integer> map) {
         if (root==null){
             return;
         }
-        dfs(root.left, inorderList);
-        inorderList.add(root.val);
-        dfs(root.right, inorderList);
+        dfs(root.left, map);
+        map.put(root.val, map.getOrDefault(root.val, 0)+1);
+        dfs(root.right, map);
     }
 
 }
