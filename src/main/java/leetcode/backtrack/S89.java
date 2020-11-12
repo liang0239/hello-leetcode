@@ -56,7 +56,6 @@ public class S89 {
         return res;
     }
 
-
     public static void main(String[] args) {
         S89 sou = new S89();
         List<Integer> ans = sou.grayCode(2);
