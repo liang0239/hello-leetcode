@@ -54,7 +54,6 @@ public class S90 {
 
     }
 
-
     public static void main(String[] args) {
         S90 sou = new S90();
         int[] nums = {1, 2, 2};
