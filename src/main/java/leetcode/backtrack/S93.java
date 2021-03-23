@@ -107,6 +107,8 @@ public class S93 {
 
     public static void main(String[] args) {
         S93 sou = new S93();
-        int[] nums = {1, 2, 3};
+        String s = "101023";
+        List<String> list = sou.restoreIpAddresses(s);
+        System.out.println(list);
     }
 }

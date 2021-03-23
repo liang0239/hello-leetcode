@@ -53,7 +53,6 @@ public class S78 {
     //    方法一：迭代法实现子集枚举
     List<Integer> t = new ArrayList<>();
     List<List<Integer>> ans1 = new ArrayList<>();
-
     public List<List<Integer>> subsets1(int[] nums) {
         int n = nums.length;
         for (int mask = 0; mask < (1 << n); mask++) {
