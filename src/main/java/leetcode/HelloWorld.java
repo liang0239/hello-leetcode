@@ -6,31 +6,33 @@ import java.util.LinkedList;
 public class HelloWorld {
     public static void main(String[] args) {
 
-        int num = 10;
-        String str = Integer.toBinaryString(num);
-        System.out.println(str);
+//        int num = 10;
+//        String str = Integer.toBinaryString(num);
+//        System.out.println(str);
+//
+//        String s = "";
+//        for (int n = num; n > 0; n /= 2) {
+//            s = (n % 2) + s;
+//        }
+//        System.out.println(s);
+//
+//        int numZero = trailingZerores(10);
+//        System.out.println(numZero);
 
-        String s = "";
-        for (int n= num; n>0; n/=2){
-            s = (n%2) + s;
-        }
-        System.out.println(s);
-
-        int numZero = trailingZerores(10);
-        System.out.println(numZero);
     }
 
-//    输入一个非负整数 n，请你计算阶乘 n! 的结果末尾有几个 0。
+    //    输入一个非负整数 n，请你计算阶乘 n! 的结果末尾有几个 0。
 //    n! 最多可以分解出多少个因子 5？
-    public  static  int trailingZerores(int n){
+    public static int trailingZerores(int n) {
         int res = 0;
         long divisor = 5;
-        while (divisor <= n){
-            res += n/divisor;
+        while (divisor <= n) {
+            res += n / divisor;
             divisor *= 5;
         }
         return res;
     }
+
     // 逻辑不变，数据类型全部改成 long
     long trailingZeroes(long n) {
         long res = 0;
@@ -40,7 +42,7 @@ public class HelloWorld {
         return res;
     }
 
-//    现在是给你一个非负整数 K，问你有多少个 n，使得 n! 结果末尾有 K 个 0。
+    //    现在是给你一个非负整数 K，问你有多少个 n，使得 n! 结果末尾有 K 个 0。
     /* 主函数 */
     long preimageSizeFZF(int K) {
         // 左边界和右边界之差 + 1 就是答案
@@ -100,9 +102,10 @@ public class HelloWorld {
         return count;
     }
 
-//    LeetCode 372 题 Super Pow，让你进行巨大的幂运算，然后求余数。
+    //    LeetCode 372 题 Super Pow，让你进行巨大的幂运算，然后求余数。
 //    对乘法的结果求模，等价于先对每个因子都求模，然后对因子相乘的结果再求模。
     int base = 1337;
+
     // 计算 a 的 k 次方然后与 base 求模的结果
     int mypow(int a, int k) {
         // 对因子求模
@@ -127,7 +130,7 @@ public class HelloWorld {
         return (part1 * part2) % base;
     }
 
-//    如何高效求幂
+    //    如何高效求幂
     int mypow1(int a, int k) {
         if (k == 0) return 1;
         a %= base;
