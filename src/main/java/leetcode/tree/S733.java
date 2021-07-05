@@ -38,9 +38,9 @@ import java.util.Queue;
 
 public class S733 {
 
-//    广度优先搜索
     int[] dx = {1,0,0,-1};
     int[] dy = {0,1,-1,0};
+//    广度优先
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         int currColor = image[sr][sc];
         if (currColor == newColor){
@@ -70,6 +70,7 @@ public class S733 {
     }
 
 
+//    深度优先
     public void dfs(int[][] image, int x, int y, int color, int newColor){
         if (image[x][y] == color){
             image[x][y] = newColor;
